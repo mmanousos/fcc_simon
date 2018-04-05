@@ -108,15 +108,27 @@ html, body {
 	padding-top: 5px;
 }
 
-
-
 .controls {
 	font-family: 'Roboto Condensed', sans-serif;
 }
 
 .count {
 	font-size: 80%;
-	margin: 0 0 0 80px;
+	margin: 0 0 0 83px;
+}
+
+.strict-indicate {
+	margin: 5px 10px 0 60px;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	background-color: #000;
+}
+
+.strict-button {
+	margin: 5px 5px 0 0;
+	height: 15px;
+	border-radius: 5px;
 }
 
 .credit {

@@ -33,7 +33,7 @@ Blue: #5944E0;
 
 **Button Play Colors:**
 Red: #FF5E5E;
-Yellow: #FFE85E;
+Yellow: #FFEB7B;
 Green: #5AF46D;
 Blue: #816FF3;
 
