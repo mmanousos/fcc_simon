@@ -31,6 +31,12 @@ Yellow: #FFDA00;
 Green: #00C718;
 Blue: #5944E0;
 
+**Button Play Colors:**
+Red: #FF5E5E;
+Yellow: #FFE85E;
+Green: #5AF46D;
+Blue: #816FF3;
+
 **Fonts:**
 Logo - Ultra;
 Controls - Roboto Condensed
