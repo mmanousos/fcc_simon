@@ -44,5 +44,12 @@ html, body {
 }
 
 .credit {
+	margin-top: 20px;
+	color: #576A94;
 	text-align: center;
+	font-size: 90%;
+}
+
+.credit a {
+	color: #B3C8F1;
 }
