@@ -21,10 +21,10 @@ html, body {
 	top: 0;
 	left: 0;
 	background-color: #FF0000;
-	border-top: 2px solid #000;
-	border-left: 2px solid #000;
-	border-bottom: 2px solid #000;
+	border: 2px solid #000;
 	border-radius: 100% 0 0 0;
+	-moz-border-radius: 100% 0 0 0;
+  -webkit-border-radius: 100% 0 0 0;
 }
 
 .quarter-red:hover {
@@ -37,8 +37,9 @@ html, body {
 	background-color: #FFDA00;
 	border-top: 2px solid #000;
 	border-right: 2px solid #000;
-	border-left: 2px solid #000;
 	border-radius: 0 100% 0 0;
+	-moz-border-radius: 0 100% 0 0;
+	-webkit-border-radius: 0 100% 0 0;
 }
 
 .quarter-yellow:hover {
@@ -53,6 +54,8 @@ html, body {
 	border-left: 2px solid #000;
 	border-right: 2px solid #000;
 	border-radius: 0 0 0 100%;
+	-moz-border-radius: 0 0 0 100%;
+	-webkit-border-radius: 0 0 0 100%;
 }
 
 .quarter-green:hover {
@@ -67,6 +70,8 @@ html, body {
 	border-right: 2px solid #000;
 	border-top: 2px solid #000;
 	border-radius: 0 0 100% 0;
+	-moz-border-radius: 0 0 100% 0;
+	 -webkit-border-radius: 0 0 100% 0;
 }
 
 .quarter-blue:hover {
