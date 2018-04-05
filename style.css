@@ -87,6 +87,11 @@ html, body {
 	z-index: 2;
 }
 
+.title {
+	margin: 50px 0 30px 20px;
+	font-family: 'Ultra', serif;
+}
+
 .credit {
 	margin-top: 20px;
 	color: #576A94;
