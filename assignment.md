@@ -37,6 +37,9 @@ Yellow: #FFEB7B;
 Green: #5AF46D;
 Blue: #816FF3;
 
+**Strict Mode Indicator Color:**
+Yellow: #EBC909;
+
 **Fonts:**
 Logo - Ultra;
 Controls - Roboto Condensed
@@ -104,6 +107,11 @@ after 16 successful plays by user, increase speed of display by computer (decrea
 after 20 successful plays by user,
 display winning message. 	
 
+
+##### *functionality:*
+on start button press, change content of '#start-text' to 'reset' from 'start'.
+
+on press of strict button, add class 'active' and attribute 'aria-pressed="true"' to button; change background-color of '#strict-indicate' to #EBC909;.
 
 **// TESTS**
 
