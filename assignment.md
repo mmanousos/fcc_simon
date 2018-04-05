@@ -29,7 +29,7 @@ Fulfill the below user stories. Use whichever libraries or APIs you need. Give i
 Red: #FF0000;
 Yellow: #FFDA00;
 Green: #00C718;
-Blue: #250EB2;
+Blue: #5944E0;
 
 **Fonts:**
 Logo - Ultra;
@@ -46,6 +46,7 @@ font-family: 'Roboto Condensed', sans-serif;
 • Indicator for number of moves / error
 • Button and indicator for 'strict mode' on or off
 • Buttons for each color
+https://stackoverflow.com/questions/16263358/quarter-of-a-ring-with-css-and-html#16263646
 
 
 **// PSEUDOCODE**

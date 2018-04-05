@@ -1,0 +1,48 @@
+html, body {
+	background-color: #7796cd;
+}
+
+.game-console {
+	position: relative;
+	width: 400px;
+	height: 400px;
+	margin: 20px auto 0 auto;
+}
+
+.quarter {
+	position: absolute;
+	width: 50%;
+	height: 50%
+}
+
+.quarter-red {
+	top: 0;
+	left: 0;
+	background-color: #FF0000;
+	border-radius: 100% 0 0 0;
+}
+
+.quarter-yellow {
+	top: 0;
+	right: 0;
+	background-color: #FFDA00;
+	border-radius: 0 100% 0 0;
+}
+
+.quarter-green {
+	bottom: 0;
+	left: 0;
+	background-color: #00C718;
+	border-radius: 0 0 0 100%;
+}
+
+.quarter-blue {
+	bottom: 0;
+	right: 0;
+	background-color: #301BB4;
+	border-radius: 0 0 100% 0;
+}
+
+.credit {
+	text-align: center;
+}
