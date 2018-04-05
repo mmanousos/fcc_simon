@@ -88,8 +88,35 @@ html, body {
 }
 
 .title {
-	margin: 50px 0 30px 20px;
+	margin: 25px 0 0 45px;
 	font-family: 'Ultra', serif;
+}
+
+.display {
+	height: 40px;
+	width: 60px;
+	margin: 0 0 0 65px;
+	background-color: #000;
+	border-radius: 5px;
+	font-family: 'PT Mono', monospace;
+	color: #FF0000;
+	font-size: 125%;
+}
+
+.display-text {
+	margin: 0 0 0 20px;
+	padding-top: 5px;
+}
+
+
+
+.controls {
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+.count {
+	font-size: 80%;
+	margin: 0 0 0 80px;
 }
 
 .credit {

@@ -40,11 +40,13 @@ Blue: #816FF3;
 **Fonts:**
 Logo - Ultra;
 Controls - Roboto Condensed
+Display - PT Mono
 
-<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Ultra" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Ultra|PT+Mono" rel="stylesheet">
 
 font-family: 'Ultra', serif;
 font-family: 'Roboto Condensed', sans-serif;
+font-family: 'PT Mono', monospace;
 
 **Elements:**
 • Toggle switch for on/off (optional)
