@@ -71,15 +71,15 @@ User presses Start to initiate computer pattern (or reset the game):
 
 Computer
 1) increases count to 1,
-2) randomly plays red, yellow, green, or blue, by showing the corresponding light and playing the appropriate sound. Displays for 1 second (each color)
+2) randomly selects red, yellow, green, or blue, 3) pushes selected color to compPlays array, 4) alerts user to next play by showing the corresponding light and playing the appropriate sound. Displays for 1 second (for each color)
 	Function for random calculation:
 	<= .249: 'red';
 	<= .499: 'yellow';
 	<= .749: 'green';
 	else: 'blue';  
-	Push selected color to compPlays.
 
 3) waits for user to play,
+
 4) checks if user's play was correct.
 	As user plays, get corresponding position value from compPlays (hold as compCurrent)
 	Check that value against what user presses (hold as userCurrent).
@@ -112,6 +112,16 @@ display winning message.
 on start button press, change content of '#start-text' to 'reset' from 'start'.
 
 on press of strict button, add class 'active' and attribute 'aria-pressed="true"' to button; change background-color of '#strict-indicate' to #EBC909;.
+
+for computer to play: generate a random number and associate color appropriately. Push color name to 'compPlays' array.
+Cycle through each array element -
+element triggers the .quarter corresponding to that element color to lighten in color and the associated sound to play. Delay between each.
+
+for user to play: pull appropriate element of CompPlays array into 'compCurrent' placeholder. User clicks on colored quarter button to match 'compCurrrent' - hold user play as userCurrent.
+
+create variable for userPlayCount (to pull value from compPlays array).
+
+
 
 **// TESTS**
 

@@ -138,8 +138,10 @@ html, body {
 	border-radius: 50%;
 	border: 1px solid #eee;
 	background-color: #444444;
-	/* indicator color
-	background-color: #EBC909;*/
+}
+
+.on {
+	background-color: #EBC909;
 }
 
 .strict-button {
