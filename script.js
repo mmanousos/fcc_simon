@@ -9,6 +9,7 @@ $(document).ready(function(){
 	const userCurrent = '';
 	const buttonPlayDuration = 1000;
 	const count = 0;
+	var color = '';
 
 	// reset game function
 	const ResetGame = function() {
@@ -47,31 +48,34 @@ $(document).ready(function(){
 		}
 	})
 
-	// Red
-	const PlayRed = function() {
-		$('#red-sound')[0].play();
-	//	$('.light-red').fadeIn('slow').delay(1000).fadeOut('slow');
+	const Play = function() {
+		$('#' + color + '-sound')[0].play();
+		$('#' + color).fadeOut('fast').delay(buttonPlayDuration).fadeIn(buttonPlayDuration);
   };
 
+// Red
 	$('#red').on('click', function() {
-		if ($('#red').hasClass('light-red')) {
-			$('#red').removeClass('light-red');
-		} else {
-			PlayRed();
-		}
+			color = $(this).attr('id');
+			Play();
 	});
 
 	// Yellow
-	// #FFEB7B;
-	// https://s3.amazonaws.com/freecodecamp/simonSound2.mp3
+	$('#yellow').on('click', function() {
+			color = $(this).attr('id');
+			Play();
+	});
 
 	// Green
-	// #5AF46D;
-	// https://s3.amazonaws.com/freecodecamp/simonSound3.mp3
+	$('#green').on('click', function() {
+			color = $(this).attr('id');
+			Play();
+	});
 
 	// Blue
-	// #816FF3;
-	// https://s3.amazonaws.com/freecodecamp/simonSound4.mp3
+	$('#blue').on('click', function() {
+			color = $(this).attr('id');
+			Play();
+	});
 
 
 
