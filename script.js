@@ -3,13 +3,13 @@ $(document).ready(function(){
 
 	// global variables
 
-	const compPlays = [];
-	const userPlays = [];
-	const compCurrrent = '';
-	const userCurrent = '';
-	const buttonPlayDuration = 1000;
-	const count = 0;
-	var color = '';
+	let compPlays = [];
+	let userPlays = [];
+	let compCurrrent = '';
+	let userCurrent = '';
+	let buttonPlayDuration = 1000;
+	let count = 0;
+	let color = '';
 
 	// reset game function
 	const ResetGame = function() {
@@ -32,7 +32,7 @@ $(document).ready(function(){
 		} else {
 			$('#start-text').addClass('reset');
 			$('.start-text').text('reset');
-			$('#display-text').text('01');
+			CompPlay();
 		}
 	})
 
@@ -48,10 +48,36 @@ $(document).ready(function(){
 		}
 	})
 
+	const Random = function() {
+		let rand = Math.random();
+		if (rand <= .249) {
+			color = 'red';
+		} else if (rand <= .499) {
+			color = 'yellow';
+		} else if (rand <= .749) {
+			color = 'green';
+		} else {
+			color = 'blue';
+		}
+	}
+
 	const Play = function() {
 		$('#' + color + '-sound')[0].play();
 		$('#' + color).fadeOut('fast').delay(buttonPlayDuration).fadeIn(buttonPlayDuration);
   };
+
+	const CompPlay = function() {
+		count++;
+		$('#display-text').text(count);
+		Random();
+		compPlays.push(color);
+		console.log(compPlays);
+//cycle through contents of compPlays array playing each in order
+		for (let el = 0; el < compPlays.length; el++) {
+			color = compPlays[el];
+			Play();
+		}
+	}
 
 // Red
 	$('#red').on('click', function() {
