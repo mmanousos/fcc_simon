@@ -17,24 +17,30 @@ html, body {
 	z-index: 1;
 }
 
+.light {
+	z-index: 0;
+}
+
 .quarter-red {
 	top: 0;
 	left: 0;
-	background-color: #FF0000;
 	border: 2px solid #000;
 	border-radius: 100% 0 0 0;
 	-moz-border-radius: 100% 0 0 0;
   -webkit-border-radius: 100% 0 0 0;
 }
 
-.quarter-red:hover {
+.red {
+	background-color: #FF0000;
+}
+
+.light-red {
 	background-color: #FF5E5E;
 }
 
 .quarter-yellow {
 	top: 0;
 	right: 0;
-	background-color: #FFDA00;
 	border-top: 2px solid #000;
 	border-right: 2px solid #000;
 	border-radius: 0 100% 0 0;
@@ -42,14 +48,17 @@ html, body {
 	-webkit-border-radius: 0 100% 0 0;
 }
 
-.quarter-yellow:hover {
+.yellow {
+	background-color: #FFDA00;
+}
+
+.light-yellow {
 	background-color: #FFEB7B;
 }
 
 .quarter-green {
 	bottom: 0;
 	left: 0;
-	background-color: #00C718;
 	border-bottom: 2px solid #000;
 	border-left: 2px solid #000;
 	border-right: 2px solid #000;
@@ -58,14 +67,17 @@ html, body {
 	-webkit-border-radius: 0 0 0 100%;
 }
 
-.quarter-green:hover {
+.green {
+	background-color: #00C718;
+}
+
+.light-green {
 	background-color: #5AF46D;
 }
 
 .quarter-blue {
 	bottom: 0;
 	right: 0;
-	background-color: #301BB4;
 	border-bottom: 2px solid #000;
 	border-right: 2px solid #000;
 	border-top: 2px solid #000;
@@ -74,7 +86,11 @@ html, body {
 	 -webkit-border-radius: 0 0 100% 0;
 }
 
-.quarter-blue:hover {
+.blue {
+	background-color: #301BB4;
+}
+
+.light-blue {
 	background-color: #816FF3;
 }
 

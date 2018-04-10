@@ -7,6 +7,7 @@ $(document).ready(function(){
 	const userPlays = [];
 	const compCurrrent = '';
 	const userCurrent = '';
+	const buttonPlayDuration = 1000;
 	const count = 0;
 
 	// reset game function
@@ -46,6 +47,34 @@ $(document).ready(function(){
 		}
 	})
 
+	// Red
+	const PlayRed = function() {
+		$('#red-sound')[0].play();
+	//	$('.light-red').fadeIn('slow').delay(1000).fadeOut('slow');
+  };
+
+	$('#red').on('click', function() {
+		if ($('#red').hasClass('light-red')) {
+			$('#red').removeClass('light-red');
+		} else {
+			PlayRed();
+		}
+	});
+
+	// Yellow
+	// #FFEB7B;
+	// https://s3.amazonaws.com/freecodecamp/simonSound2.mp3
+
+	// Green
+	// #5AF46D;
+	// https://s3.amazonaws.com/freecodecamp/simonSound3.mp3
+
+	// Blue
+	// #816FF3;
+	// https://s3.amazonaws.com/freecodecamp/simonSound4.mp3
 
 
+
+
+// final closing brackets
 });
