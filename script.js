@@ -68,39 +68,88 @@ $(document).ready(function(){
 
 	const CompPlay = function() {
 		count++;
-		$('#display-text').text(count);
 		Random();
 		compPlays.push(color);
-		console.log(compPlays);
+		console.log('compPlays: ' + compPlays);
+		RunThrough();
+	}
+
+	const RunThrough = function() {
 //cycle through contents of compPlays array playing each in order
+		$('#display-text').text(count);
 		for (let el = 0; el < compPlays.length; el++) {
 			color = compPlays[el];
 			Play();
 		}
 	}
 
+	const UserPlay = function() {
+		let el = 0;
+		compCurrent = compPlays[el];
+		console.log('compCurrent: ' + compCurrent);
+		CheckPlay();
+	}
+
+	const CheckPlay = function() {
+// the user value doesn't match the current computer value
+		if (userCurrent !== compCurrent) {
+// if strict mode is on
+			if ($('#strict-indicate').hasClass('on')) {
+// reset the game and start again
+				ResetGame();
+				CompPlay();
+			} else {
+// display error message
+				$('#display-text').text('!!!');
+// show sequence again
+	/* TODO: figure out how to delay runthrough so !!! can display longer */ 
+				RunThrough();
+			}
+		} else {
+			userPlays.push(userCurrent);
+			console.log('userPlays: ' + userPlays)
+			//el++;
+			// how will it know to keep checking subsequent elements? just by button clicks?
+			/*if (userPlays.length === compPlays.length) {
+				CompPlay();
+			} */
+		}
+	}
+
 // Red
 	$('#red').on('click', function() {
 			color = $(this).attr('id');
+			userCurrent = color;
+			console.log('userCurrent: ' + userCurrent);
 			Play();
+			UserPlay();
 	});
 
 	// Yellow
 	$('#yellow').on('click', function() {
 			color = $(this).attr('id');
+			userCurrent = color;
+			console.log('userCurrent: ' + userCurrent);
 			Play();
+			UserPlay();
 	});
 
 	// Green
 	$('#green').on('click', function() {
 			color = $(this).attr('id');
+			userCurrent = color;
+			console.log('userCurrent: ' + userCurrent);
 			Play();
+			UserPlay();
 	});
 
 	// Blue
 	$('#blue').on('click', function() {
 			color = $(this).attr('id');
+			userCurrent = color;
+			console.log('userCurrent: ' + userCurrent);
 			Play();
+			UserPlay();
 	});
 
 
