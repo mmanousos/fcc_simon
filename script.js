@@ -36,7 +36,6 @@ $(document).ready(function(){
 		}
 	})
 
-
 	// strict button
 	$('#strict').on('click', function() {
 		if ($('#strict-indicate').hasClass('on')) {
@@ -90,6 +89,10 @@ $(document).ready(function(){
 		CheckPlay();
 	}
 
+	const Error = function() {
+			$('#display-text').text('!!!');
+	}
+
 	const CheckPlay = function() {
 // the user value doesn't match the current computer value
 		if (userCurrent !== compCurrent) {
@@ -100,10 +103,9 @@ $(document).ready(function(){
 				CompPlay();
 			} else {
 // display error message
-				$('#display-text').text('!!!');
+				Error();
 // show sequence again
-	/* TODO: figure out how to delay runthrough so !!! can display longer */ 
-				RunThrough();
+				setTimeout(RunThrough, 1500);
 			}
 		} else {
 			userPlays.push(userCurrent);
