@@ -63,6 +63,7 @@ $(document).ready(function(){
 	const Play = function() {
 		$('#' + color + '-sound')[0].play();
 		$('#' + color).fadeOut('fast').delay(buttonPlayDuration).fadeIn(buttonPlayDuration);
+		console.log(color + ' was played');
   };
 
 	const CompPlay = function() {
@@ -100,7 +101,7 @@ $(document).ready(function(){
 			if ($('#strict-indicate').hasClass('on')) {
 // reset the game and start again
 				ResetGame();
-				CompPlay();
+				setTimeout(CompPlay, 1000);
 			} else {
 // display error message
 				Error();
@@ -109,7 +110,8 @@ $(document).ready(function(){
 			}
 		} else {
 			userPlays.push(userCurrent);
-			console.log('userPlays: ' + userPlays)
+			console.log('userPlays: ' + userPlays);
+			setTimeout(CompPlay, 1000);
 			//el++;
 			// how will it know to keep checking subsequent elements? just by button clicks?
 			/*if (userPlays.length === compPlays.length) {
