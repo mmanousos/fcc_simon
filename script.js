@@ -47,6 +47,7 @@ $(document).ready(function(){
 		}
 	})
 
+	// random assignment of color for CompPlay
 	const Random = function() {
 		let rand = Math.random();
 		if (rand <= .249) {
@@ -60,11 +61,13 @@ $(document).ready(function(){
 		}
 	}
 
+	// trigger sound and color change for button click or CompPlay
 	const Play = function() {
 		$('#' + color + '-sound')[0].play();
 		$('#' + color).fadeOut('fast').delay(buttonPlayDuration).fadeIn(buttonPlayDuration);
   };
 
+	// computer play: increase count, get random color, push to compPlays array, display sequence
 	const CompPlay = function() {
 		count++;
 		Random();
@@ -92,6 +95,7 @@ $(document).ready(function(){
 		DisplayDelay();                      //  start the loop
 	}
 
+	// userPlay function
 	const UserPlay = function() {
 		let el = 0;
 		compCurrent = compPlays[el];
@@ -99,10 +103,12 @@ $(document).ready(function(){
 		CheckPlay();
 	}
 
+	// display error message
 	const Error = function() {
 			$('#display-text').text('!!!');
 	}
 
+	// check if user's play is correct
 	const CheckPlay = function() {
 // the user value doesn't match the current computer value
 		if (userCurrent !== compCurrent) {
@@ -127,13 +133,10 @@ $(document).ready(function(){
 			};
 			//el++;
 			// how will it know to keep checking subsequent elements? just by button clicks?
-			/*if (userPlays.length === compPlays.length) {
-				CompPlay();
-			} */
 		}
 	}
 
-// Red
+// Red button play functionality
 	$('#red').on('click', function() {
 			color = $(this).attr('id');
 			userCurrent = color;
@@ -142,7 +145,7 @@ $(document).ready(function(){
 			UserPlay();
 	});
 
-	// Yellow
+	// Yellow button play functionality
 	$('#yellow').on('click', function() {
 			color = $(this).attr('id');
 			userCurrent = color;
@@ -151,7 +154,7 @@ $(document).ready(function(){
 			UserPlay();
 	});
 
-	// Green
+	// Green button play functionality
 	$('#green').on('click', function() {
 			color = $(this).attr('id');
 			userCurrent = color;
@@ -160,7 +163,7 @@ $(document).ready(function(){
 			UserPlay();
 	});
 
-	// Blue
+	// Blue button play functionality
 	$('#blue').on('click', function() {
 			color = $(this).attr('id');
 			userCurrent = color;
