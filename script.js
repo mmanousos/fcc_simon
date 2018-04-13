@@ -106,15 +106,14 @@ $(document).ready(function(){
 				Error();
 				console.log("THERE'S AN ERROR, LET ME SHOW YOU AGAIN");
 // show sequence again
-				setTimeout(RunThrough, 1500);
+				setTimeout(RunThrough, 3000);
 			}
 		} else {
 			userPlays.push(userCurrent);
 			console.log('userPlays: ' + userPlays)
 			if (userPlays.length === compPlays.length) {
 				userPlays = [];
-				console.log('userPlays has been reset. now is: ' + userPlays );
-				setTimeout(CompPlay, (buttonPlayDuration * userPlays.length));
+				setTimeout(CompPlay, 3000);
 			};
 			//el++;
 			// how will it know to keep checking subsequent elements? just by button clicks?
