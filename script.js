@@ -105,7 +105,11 @@ $(document).ready(function(){
 
 	// display error message
 	const Error = function() {
-			$('#display-text').text('!!!');
+		$('#display-text').text('!!!');
+	}
+
+	const Win = function() {
+		$('#display-text').text('WIN');
 	}
 
 	// check if user's play is correct
@@ -127,7 +131,9 @@ $(document).ready(function(){
 		} else {
 			userPlays.push(userCurrent);
 			console.log('userPlays: ' + userPlays)
-			if (userPlays.length === compPlays.length) {
+			if (userPlays.length === 20) {
+				Win();
+			} else if (userPlays.length === compPlays.length) {
 				userPlays = [];
 				setTimeout(CompPlay, 3000);
 			};
