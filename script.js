@@ -104,6 +104,7 @@ $(document).ready(function(){
 			} else {
 // display error message
 				Error();
+				console.log("THERE'S AN ERROR, LET ME SHOW YOU AGAIN");
 // show sequence again
 				setTimeout(RunThrough, 1500);
 			}
