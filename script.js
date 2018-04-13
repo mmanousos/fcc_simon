@@ -2,7 +2,6 @@
 $(document).ready(function(){
 
 	// global variables
-
 	let compPlays = [];
 	let userPlays = [];
 	let compCurrrent = '';
@@ -69,38 +68,30 @@ $(document).ready(function(){
 
 	// computer play: increase count, get random color, push to compPlays array, display sequence
 	const CompPlay = function() {
-		count++;
-		Random();
-		compPlays.push(color);
+		count++;  // increase count by 1
+		Random(); // get random color
+		compPlays.push(color); // push color to compPlays array
 		console.log('compPlays: ' + compPlays);
-		RunThrough();
+		RunThrough(); // display new sequence
 	}
 
 	const RunThrough = function() {
 //cycle through contents of compPlays array playing each in order
 		$('#display-text').text(count);
-		let el = 0;                     //  set your counter to 0
+		let el = 0;                    //  set your counter to 0
 
-		function DisplayDelay () {           //  create a loop function
-		   setTimeout(function () {    //  call a 2s setTimeout when the loop is called
+		function DisplayDelay() {     //  create a loop function
+		   setTimeout(function() {    //  call a 2s setTimeout when the loop is called
 		      color = compPlays[el];
 					Play();
 		      el++;                     //  increment the counter
-		      if (el < compPlays.length) {            //  if the counter < compPlays, call the loop function
-		         DisplayDelay();             //  ..  again which will trigger another
+		      if (el < compPlays.length) {  //  if the counter < compPlays, call the loop function
+		         DisplayDelay();       //  ..  again which will trigger another
 		      }                        //  ..  setTimeout()
 		   }, 1000)
 		}
 
-		DisplayDelay();                      //  start the loop
-	}
-
-	// userPlay function
-	const UserPlay = function() {
-		let el = 0;
-		compCurrent = compPlays[el];
-		console.log('compCurrent: ' + compCurrent);
-		CheckPlay();
+		DisplayDelay();                //  start the loop
 	}
 
 	// display error message
@@ -114,33 +105,45 @@ $(document).ready(function(){
 
 	// check if user's play is correct
 	const CheckPlay = function() {
+//loop through values of compPlays to check against userPlay
+		let el = 0;
+		function CheckValue() {
+			compCurrent = compPlays[el];
+			console.log('compCurrent: ' + compCurrent);
 // the user value doesn't match the current computer value
-		if (userCurrent !== compCurrent) {
-// if strict mode is on
-			if ($('#strict-indicate').hasClass('on')) {
-// reset the game and start again
-				ResetGame();
-				CompPlay();
+			if (userCurrent !== compCurrent) {
+	// if strict mode is on
+				if ($('#strict-indicate').hasClass('on')) {
+	// reset the game and start again
+					ResetGame();
+					CompPlay();
+				} else {
+	// display error message
+					Error();
+					console.log("THERE'S AN ERROR, LET ME SHOW YOU AGAIN");
+	// clear userPlays
+					userPlays = [];
+	// show sequence again
+					setTimeout(RunThrough, 3000);
+				}
 			} else {
-// display error message
-				Error();
-				console.log("THERE'S AN ERROR, LET ME SHOW YOU AGAIN");
-// show sequence again
-				setTimeout(RunThrough, 3000);
+				userPlays.push(userCurrent);
+				console.log('userPlays: ' + userPlays)
+				if (userPlays.length === 20) {
+					Win();
+				} else if (userPlays.length === compPlays.length) {
+					userPlays = [];
+					setTimeout(CompPlay, 3000);
+				};
+				el++;
+				if (el < compPlays.length) {
+					// userCurrent = '';
+					CheckValue();
+				}
 			}
-		} else {
-			userPlays.push(userCurrent);
-			console.log('userPlays: ' + userPlays)
-			if (userPlays.length === 20) {
-				Win();
-			} else if (userPlays.length === compPlays.length) {
-				userPlays = [];
-				setTimeout(CompPlay, 3000);
-			};
-			//el++;
-			// how will it know to keep checking subsequent elements? just by button clicks?
 		}
-	}
+		CheckValue();
+	};
 
 // Red button play functionality
 	$('#red').on('click', function() {
@@ -148,7 +151,7 @@ $(document).ready(function(){
 			userCurrent = color;
 			console.log('userCurrent: ' + userCurrent);
 			Play();
-			UserPlay();
+			CheckPlay();
 	});
 
 	// Yellow button play functionality
@@ -157,7 +160,7 @@ $(document).ready(function(){
 			userCurrent = color;
 			console.log('userCurrent: ' + userCurrent);
 			Play();
-			UserPlay();
+			CheckPlay();
 	});
 
 	// Green button play functionality
@@ -166,7 +169,7 @@ $(document).ready(function(){
 			userCurrent = color;
 			console.log('userCurrent: ' + userCurrent);
 			Play();
-			UserPlay();
+			CheckPlay();
 	});
 
 	// Blue button play functionality
@@ -175,11 +178,8 @@ $(document).ready(function(){
 			userCurrent = color;
 			console.log('userCurrent: ' + userCurrent);
 			Play();
-			UserPlay();
+			CheckPlay();
 	});
-
-
-
 
 // final closing brackets
 });
