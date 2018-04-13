@@ -110,6 +110,7 @@ $(document).ready(function(){
 		} else {
 			userPlays.push(userCurrent);
 			console.log('userPlays: ' + userPlays)
+			setTimeout(CompPlay, (buttonPlayDuration * userPlays.length));
 			//el++;
 			// how will it know to keep checking subsequent elements? just by button clicks?
 			/*if (userPlays.length === compPlays.length) {
