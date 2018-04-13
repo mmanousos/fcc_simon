@@ -76,10 +76,20 @@ $(document).ready(function(){
 	const RunThrough = function() {
 //cycle through contents of compPlays array playing each in order
 		$('#display-text').text(count);
-		for (let el = 0; el < compPlays.length; el++) {
-			color = compPlays[el];
-			Play();
+		let el = 0;                     //  set your counter to 0
+
+		function DisplayDelay () {           //  create a loop function
+		   setTimeout(function () {    //  call a 2s setTimeout when the loop is called
+		      color = compPlays[el];
+					Play();
+		      el++;                     //  increment the counter
+		      if (el < compPlays.length) {            //  if the counter < compPlays, call the loop function
+		         DisplayDelay();             //  ..  again which will trigger another
+		      }                        //  ..  setTimeout()
+		   }, 1000)
 		}
+
+		DisplayDelay();                      //  start the loop
 	}
 
 	const UserPlay = function() {
