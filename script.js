@@ -129,13 +129,20 @@ $(document).ready(function(){
 					userPlays = [];
 	// show sequence again
 					setTimeout(RunThrough, 3000);
+					el = 0;
 				}
 			} else { // if correct
 				userPlays.push(userCurrent); // push UserCurrent to userPlays array
 				console.log('CORRECT! userPlays: ' + userPlays);
+				userCurrent = ''; // reset userCurrent to wait for next button click
+				console.log('userCurrent: ' + userCurrent);
 				if (userPlays.length === 20) { // if userPlays array is 20 elements long
 					Win(); // display winning message & reset game.
+				} else if (buttonClicks < el-1) {
+					//else if (userPlays.length < compPlays.length) {
+					console.log('user needs to play more in this sequence');
 				} else if (userPlays.length === compPlays.length) { // otherwise, if array lengths match
+					console.log('array lengths match, fetching addl content for sequence');
 					userPlays = [];  // reset userPlays array
 					setTimeout(CompPlay, 3000); // run CompPlay again to add to sequence
 				};
@@ -163,6 +170,7 @@ $(document).ready(function(){
 
 // Red button play functionality
 	$('#red').on('click', function() {
+			buttonClicks++;
 			color = $(this).attr('id');
 			UserPlay();
 			Play();
@@ -171,6 +179,7 @@ $(document).ready(function(){
 
 	// Yellow button play functionality
 	$('#yellow').on('click', function() {
+			buttonClicks++;
 			color = $(this).attr('id');
 		/*	userCurrent = color;
 			console.log('userCurrent: ' + userCurrent);*/
@@ -181,6 +190,7 @@ $(document).ready(function(){
 
 	// Green button play functionality
 	$('#green').on('click', function() {
+			buttonClicks++;
 			color = $(this).attr('id');
 		/*	userCurrent = color;
 			console.log('userCurrent: ' + userCurrent);*/
@@ -191,6 +201,7 @@ $(document).ready(function(){
 
 	// Blue button play functionality
 	$('#blue').on('click', function() {
+			buttonClicks++;
 			color = $(this).attr('id');
 		/*	userCurrent = color;
 			console.log('userCurrent: ' + userCurrent);*/
