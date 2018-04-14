@@ -104,6 +104,7 @@ $(document).ready(function(){
 	// display win message
 	const Win = function() {
 		$('#display-text').text('WIN');
+		ResetGame();
 	}
 
 	// check if user's play is correct
@@ -129,14 +130,14 @@ $(document).ready(function(){
 	// show sequence again
 					setTimeout(RunThrough, 3000);
 				}
-			} else {
-				userPlays.push(userCurrent);
-				console.log('userPlays: ' + userPlays)
-				if (userPlays.length === 20) {
-					Win();
-				} else if (userPlays.length === compPlays.length) {
-					userPlays = [];
-					setTimeout(CompPlay, 3000);
+			} else { // if correct
+				userPlays.push(userCurrent); // push UserCurrent to userPlays array
+				console.log('CORRECT! userPlays: ' + userPlays);
+				if (userPlays.length === 20) { // if userPlays array is 20 elements long
+					Win(); // display winning message & reset game.
+				} else if (userPlays.length === compPlays.length) { // otherwise, if array lengths match
+					userPlays = [];  // reset userPlays array
+					setTimeout(CompPlay, 3000); // run CompPlay again to add to sequence
 				};
 				el++;
 				console.log('the next element to check is ' + compPlays[el]);
@@ -144,7 +145,7 @@ $(document).ready(function(){
 				if (el < compPlays.length) {
 					userCurrent = ''; // reset userCurrent
 					$.when(UserPlay()).then(function() { // wait for user to click again
-						console.log('checking again');
+						console.log('user has played. checking again.');
 						CheckValue();		// then check next click against next value
 					});
 					// only run again when userCurrent is set again
