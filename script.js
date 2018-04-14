@@ -75,6 +75,7 @@ $(document).ready(function(){
 		RunThrough(); // display new sequence
 	}
 
+	// display sequence that user must replicate
 	const RunThrough = function() {
 //cycle through contents of compPlays array playing each in order
 		$('#display-text').text(count);
@@ -99,6 +100,7 @@ $(document).ready(function(){
 		$('#display-text').text('!!!');
 	}
 
+	// display win message
 	const Win = function() {
 		$('#display-text').text('WIN');
 	}
