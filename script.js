@@ -8,6 +8,7 @@ $(document).ready(function(){
 	let userCurrent = '';
 	let buttonPlayDuration = 1000;
 	let count = 0;
+	let buttonClicks = 0;
 	let color = '';
 
 	// reset game function
@@ -138,20 +139,31 @@ $(document).ready(function(){
 					setTimeout(CompPlay, 3000);
 				};
 				el++;
+				console.log('the next element to check is ' + compPlays[el]);
+				// if there are more elements to check in CompPlays array
 				if (el < compPlays.length) {
-					// userCurrent = '';
-					CheckValue();
+					userCurrent = ''; // reset userCurrent
+					$.when(UserPlay()).then(function() { // wait for user to click again
+						console.log('checking again');
+						CheckValue();		// then check next click against next value
+					});
+					// only run again when userCurrent is set again
 				}
 			}
 		}
 		CheckValue();
 	};
 
+	const UserPlay = function() {
+		buttonClicks++;
+		userCurrent = color;
+		console.log('userCurrent: ' + userCurrent);
+	}
+
 // Red button play functionality
 	$('#red').on('click', function() {
 			color = $(this).attr('id');
-			userCurrent = color;
-			console.log('userCurrent: ' + userCurrent);
+			UserPlay();
 			Play();
 			CheckPlay();
 	});
@@ -159,8 +171,9 @@ $(document).ready(function(){
 	// Yellow button play functionality
 	$('#yellow').on('click', function() {
 			color = $(this).attr('id');
-			userCurrent = color;
-			console.log('userCurrent: ' + userCurrent);
+		/*	userCurrent = color;
+			console.log('userCurrent: ' + userCurrent);*/
+			UserPlay();
 			Play();
 			CheckPlay();
 	});
@@ -168,8 +181,9 @@ $(document).ready(function(){
 	// Green button play functionality
 	$('#green').on('click', function() {
 			color = $(this).attr('id');
-			userCurrent = color;
-			console.log('userCurrent: ' + userCurrent);
+		/*	userCurrent = color;
+			console.log('userCurrent: ' + userCurrent);*/
+			UserPlay();
 			Play();
 			CheckPlay();
 	});
@@ -177,8 +191,9 @@ $(document).ready(function(){
 	// Blue button play functionality
 	$('#blue').on('click', function() {
 			color = $(this).attr('id');
-			userCurrent = color;
-			console.log('userCurrent: ' + userCurrent);
+		/*	userCurrent = color;
+			console.log('userCurrent: ' + userCurrent);*/
+			UserPlay();
 			Play();
 			CheckPlay();
 	});
