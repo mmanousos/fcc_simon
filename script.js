@@ -73,6 +73,7 @@ $(document).ready(function(){
 		Random(); // get random color
 		compPlays.push(color); // push color to compPlays array
 		console.log('compPlays: ' + compPlays);
+		console.log('computer has played ' + compPlays.length + ' times');
 		RunThrough(); // display new sequence
 	}
 
@@ -88,7 +89,7 @@ $(document).ready(function(){
 					Play();
 		      el++;                     //  increment the counter
 		      if (el < compPlays.length) {  //  if the counter < compPlays, call the loop function
-		         DisplayDelay();       //  ..  again which will trigger another
+		        DisplayDelay();       //  ..  again which will trigger another
 		      }                        //  ..  setTimeout()
 		   }, 1000)
 		}
@@ -99,6 +100,11 @@ $(document).ready(function(){
 	// display error message
 	const Error = function() {
 		$('#display-text').text('!!!');
+		console.log("THERE'S AN ERROR, LET ME SHOW YOU AGAIN");
+// clear userPlays
+		userPlays = [];
+// show sequence again
+		setTimeout(RunThrough, 3000);
 	}
 
 	// display win message
@@ -113,50 +119,31 @@ $(document).ready(function(){
 		let el = 0;
 		function CheckValue() {
 			compCurrent = compPlays[el];
-			console.log('compCurrent: ' + compCurrent);
+			userCurrent = userPlays[el];
+			console.log('compCurrent: ' + compCurrent + ' userCurrent: ' + userCurrent);
 // the user value doesn't match the current computer value
 			if (userCurrent !== compCurrent) {
 	// if strict mode is on
 				if ($('#strict-indicate').hasClass('on')) {
 	// reset the game and start again
 					ResetGame();
-					CompPlay();
+					setTimeout(CompPlay, 3000);
 				} else {
 	// display error message
 					Error();
-					console.log("THERE'S AN ERROR, LET ME SHOW YOU AGAIN");
-	// clear userPlays
-					userPlays = [];
-	// show sequence again
-					setTimeout(RunThrough, 3000);
-					el = 0;
+					el = 0; // start again for checking values
 				}
 			} else { // if correct
-				userPlays.push(userCurrent); // push UserCurrent to userPlays array
-				console.log('CORRECT! userPlays: ' + userPlays);
-				userCurrent = ''; // reset userCurrent to wait for next button click
-				console.log('userCurrent: ' + userCurrent);
-				if (userPlays.length === 20) { // if userPlays array is 20 elements long
-					Win(); // display winning message & reset game.
-				} else if (buttonClicks < el-1) {
-					//else if (userPlays.length < compPlays.length) {
-					console.log('user needs to play more in this sequence');
-				} else if (userPlays.length === compPlays.length) { // otherwise, if array lengths match
-					console.log('array lengths match, fetching addl content for sequence');
-					userPlays = [];  // reset userPlays array
-					setTimeout(CompPlay, 3000); // run CompPlay again to add to sequence
-				};
+				console.log('play ' + (el+1) + ': CORRECT!');
 				el++;
-				console.log('the next element to check is ' + compPlays[el]);
-				// if there are more elements to check in CompPlays array
-				if (el < compPlays.length) {
-					userCurrent = ''; // reset userCurrent
-					$.when(UserPlay()).then(function() { // wait for user to click again
-						console.log('user has played. checking again.');
-						CheckValue();		// then check next click against next value
-					});
-					// only run again when userCurrent is set again
-				}
+				if (el === 20) { // if userPlays array is 20 elements long
+					Win(); // ...display winning message & reset game.
+				} else if (el >= compPlays.length) { // if el is greater than number of compPlays
+					userPlays = [];  // ...reset userPlays array
+					setTimeout(CompPlay, 3000); // ...run CompPlay again to add to sequence
+				} else if (el < compPlays.length) { // otherwise
+						CheckValue();		// ...check next two values
+				};
 			}
 		}
 		CheckValue();
@@ -164,50 +151,42 @@ $(document).ready(function(){
 
 	const UserPlay = function() {
 		buttonClicks++;
-		userCurrent = color;
-		console.log('userCurrent: ' + userCurrent);
+		console.log('buttonClicks: ' + buttonClicks);
+//TODO: double counting clicks - not sure I even need them. 
+		userPlays.push(color);
+		if (userPlays.length === compPlays.length) {
+			CheckPlay();
+		} else if (userPlays.length > compPlays.length) {
+			Error();
+		}
 	}
 
 // Red button play functionality
 	$('#red').on('click', function() {
-			buttonClicks++;
 			color = $(this).attr('id');
 			UserPlay();
 			Play();
-			CheckPlay();
 	});
 
 	// Yellow button play functionality
 	$('#yellow').on('click', function() {
-			buttonClicks++;
 			color = $(this).attr('id');
-		/*	userCurrent = color;
-			console.log('userCurrent: ' + userCurrent);*/
 			UserPlay();
 			Play();
-			CheckPlay();
 	});
 
 	// Green button play functionality
 	$('#green').on('click', function() {
-			buttonClicks++;
 			color = $(this).attr('id');
-		/*	userCurrent = color;
-			console.log('userCurrent: ' + userCurrent);*/
 			UserPlay();
 			Play();
-			CheckPlay();
 	});
 
 	// Blue button play functionality
 	$('#blue').on('click', function() {
-			buttonClicks++;
 			color = $(this).attr('id');
-		/*	userCurrent = color;
-			console.log('userCurrent: ' + userCurrent);*/
 			UserPlay();
 			Play();
-			CheckPlay();
 	});
 
 // final closing brackets
