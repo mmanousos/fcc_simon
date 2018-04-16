@@ -7,6 +7,7 @@ $(document).ready(function(){
 	let compCurrrent = '';
 	let userCurrent = '';
 	let buttonPlayDuration = 1000;
+	let buttonFadeDuration = 300;
 	let count = 0;
 	let buttonClicks = 0;
 	let color = '';
@@ -15,6 +16,9 @@ $(document).ready(function(){
 	const ResetGame = function() {
 		// reset display-text to 00
 		$('#display-text').text('00');
+		// reset start text to 'start'
+		$('.start-text').removeClass('reset');
+		$('.start-text').text('start');
 		// reset placeholders
 		compPlays = [];
 		userPlays = [];
@@ -64,7 +68,17 @@ $(document).ready(function(){
 	// trigger sound and color change for button click or CompPlay
 	const Play = function() {
 		$('#' + color + '-sound')[0].play();
-		$('#' + color).fadeOut('fast').delay(buttonPlayDuration).fadeIn(buttonPlayDuration);
+		// speed up as
+		if (compPlays.length > 8) {
+			buttonPlayDuration = 800;
+		} else if (compPlays.length > 12) {
+			buttonPlayDuration = 500;
+			buttonFadeDuration = 200;
+		} else if (compPlays.length > 16) {
+			buttonPlayDuration = 300;
+			buttonFadeDuration = 200;
+		}
+		$('#' + color).fadeOut('fast').delay(buttonPlayDuration).fadeIn(buttonFadeDuration);
   };
 
 	// computer play: increase count, get random color, push to compPlays array, display sequence
@@ -172,9 +186,21 @@ $(document).ready(function(){
 			Play();
 	});
 
+	$('#light-red').on('click', function() {
+			color = 'red';
+			UserPlay();
+			Play();
+	});
+
 	// Yellow button play functionality
 	$('#yellow').on('click', function() {
 			color = $(this).attr('id');
+			UserPlay();
+			Play();
+	});
+
+	$('#light-yellow').on('click', function() {
+			color = 'yellow';
 			UserPlay();
 			Play();
 	});
@@ -186,9 +212,21 @@ $(document).ready(function(){
 			Play();
 	});
 
+	$('#light-green').on('click', function() {
+			color = 'green';
+			UserPlay();
+			Play();
+	});
+
 	// Blue button play functionality
 	$('#blue').on('click', function() {
 			color = $(this).attr('id');
+			UserPlay();
+			Play();
+	});
+
+	$('#light-blue').on('click', function() {
+			color = 'blue';
 			UserPlay();
 			Play();
 	});
