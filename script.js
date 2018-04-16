@@ -68,11 +68,7 @@ $(document).ready(function(){
 	// trigger sound and color change for button click or CompPlay
 	const Play = function() {
 		$('#' + color + '-sound')[0].play();
-<<<<<<< HEAD
-		$('#' + color).fadeOut('fast').delay(buttonPlayDuration).fadeIn(buttonPlayDuration);
-		console.log(color + ' was played');
-=======
-		// speed up as
+		// speed up as count gets higher
 		if (compPlays.length > 8) {
 			buttonPlayDuration = 800;
 		} else if (compPlays.length > 12) {
@@ -83,7 +79,6 @@ $(document).ready(function(){
 			buttonFadeDuration = 200;
 		}
 		$('#' + color).fadeOut('fast').delay(buttonPlayDuration).fadeIn(buttonFadeDuration);
->>>>>>> check_arrays
   };
 
 	// computer play: increase count, get random color, push to compPlays array, display sequence
