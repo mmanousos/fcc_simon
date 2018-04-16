@@ -103,6 +103,8 @@ $(document).ready(function(){
 		console.log("THERE'S AN ERROR, LET ME SHOW YOU AGAIN");
 // clear userPlays
 		userPlays = [];
+// clear buttonClicks counter
+		buttonClicks = 0;
 // show sequence again
 		setTimeout(RunThrough, 3000);
 	}
@@ -110,7 +112,7 @@ $(document).ready(function(){
 	// display win message
 	const Win = function() {
 		$('#display-text').text('WIN');
-		ResetGame();
+		setTimeout(ResetGame, 5000);
 	}
 
 	// check if user's play is correct
@@ -140,6 +142,7 @@ $(document).ready(function(){
 					Win(); // ...display winning message & reset game.
 				} else if (el >= compPlays.length) { // if el is greater than number of compPlays
 					userPlays = [];  // ...reset userPlays array
+					buttonClicks = 0; // ... reset buttonClicks
 					setTimeout(CompPlay, 3000); // ...run CompPlay again to add to sequence
 				} else if (el < compPlays.length) { // otherwise
 						CheckValue();		// ...check next two values
@@ -149,10 +152,11 @@ $(document).ready(function(){
 		CheckValue();
 	};
 
+	// TODO: delay reset for WIN message to display
+
 	const UserPlay = function() {
 		buttonClicks++;
 		console.log('buttonClicks: ' + buttonClicks);
-//TODO: double counting clicks - not sure I even need them. 
 		userPlays.push(color);
 		if (userPlays.length === compPlays.length) {
 			CheckPlay();
