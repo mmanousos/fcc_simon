@@ -13,22 +13,27 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed|Ultra|PT+Mono' rel='stylesheet'>
 
     <link rel='stylesheet' type='text/css' href='style.css' />
+
+<!-- QUnit testing
+		<script src = 'https://code.jquery.com/qunit/qunit-2.6.0.js'></script>
+		<link rel = 'stylesheet' href = 'https://code.jquery.com/qunit/qunit-2.6.0.css'> -->
+
 	</head>
 	<body>
 		<div class='jumbo container-fluid'>
   	  <div class='row game-console justify-content-center'>
 				<div class='col-sm-12'>
 					<div class='quarter quarter-red red' id='red'>
-						<audio id="red-sound" src="sounds/hihat-lq.mp3" preload="auto"></audio>
+						<audio id='red-sound' src='sounds/hihat-lq.mp3' preload='auto'></audio>
 					</div>
 					<div class='quarter quarter-yellow yellow' id='yellow'>
-						<audio id="yellow-sound" src="sounds/kick-lq.mp3" preload="auto"></audio>
+						<audio id='yellow-sound' src='sounds/kick-lq.mp3' preload='auto'></audio>
 					</div>
 					<div class='quarter quarter-green green' id='green'>
-						<audio id="green-sound" src="sounds/snare-lq.mp3" preload="auto"></audio>
+						<audio id='green-sound' src='sounds/snare-lq.mp3' preload='auto'></audio>
 					</div>
 					<div class='quarter quarter-blue blue' id='blue'>
-						<audio id="blue-sound" src="sounds/acoustic-kick-lq.mp3" preload="auto"></audio>
+						<audio id='blue-sound' src='sounds/acoustic-kick-lq.mp3' preload='auto'></audio>
 					</div>
 					<div class='quarter light quarter-red light-red' id='light-red'></div>
 					<div class='quarter light quarter-yellow light-yellow' id='light-yellow'></div>
@@ -57,22 +62,28 @@
 
 				</div>
 			</div>
-			<div class="row credit">
-        <div class="col-md-12">
+			<div class='row credit'>
+        <div class='col-md-12'>
 
-          <p>Design and code: <a href="http://www.melissamanousos.com" target="_blank">M. Manousos</a><br>
-          A <a href="http://www.freecodecamp.org" target="_blank">freeCodeCamp</a> assignment.</p>
+          <p>Design and code: <a href='http://www.melissamanousos.com' target='_blank'>M. Manousos</a><br>
+          A <a href='http://www.freecodecamp.org' target='_blank'>freeCodeCamp</a> assignment.</p>
 
         </div>
       </div>
 		</div>
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<!-- QUnit testing module -->
+<!--		<div id = 'qunit'></div>
+		<div id = 'qunit-fixture'></div> -->
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- jQuery & Bootstrap -->
+		<script src='https://code.jquery.com/jquery-3.3.1.min.js' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=' crossorigin='anonymous'></script>
 
-    <script src="script.js"></script>
-		<script src="test.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js' integrity='sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh' crossorigin='anonymous'></script>
+
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous'></script>
+
+    <script type='javascript' src='script.js'></script>
+	<!--	<script type='javascript' src='test.js'></script> -->
 	</body>
 </html>
