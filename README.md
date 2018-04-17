@@ -16,4 +16,10 @@ Unfortunately, trying to implement tests for the scripting proved unsuccessful. 
 
 I successfully used branches for this project. I did have some issues with merging my final branch back into master to complete the project but was able to find some guidance on StackOverflow: [Replacing Master Branch in Git](https://stackoverflow.com/questions/2862590/how-to-replace-master-branch-in-git-entirely-from-another-branch).
 
-Additionally, a friend introduced me to the [-stash](https://www.atlassian.com/git/tutorials/saving-changes/git-stash) command which seems very helpful for pausing work on a particular issue to address something else. 
+Additionally, a friend introduced me to the [-stash](https://www.atlassian.com/git/tutorials/saving-changes/git-stash) command which seems very helpful for pausing work on a particular issue to address something else.
+
+### Remaining Potential Improvements
+
++ Notify user they have not played enough buttons
++ _related:_ Error timeout if no buttons are pressed for a specific amount of time
++ Cancel the display of user button clicks once computer RunThrough initiates (following an error)
